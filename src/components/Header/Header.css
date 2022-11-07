@@ -1,0 +1,10 @@
+.menu li a {
+  font-weight: 600;
+  font-size: 17px;
+}
+.active {
+  background-color: #000000;
+}
+.active:hover {
+  background-color: #000000;
+}
