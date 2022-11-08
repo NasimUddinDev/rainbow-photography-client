@@ -1,7 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Service from "../../components/Service/Service";
+import "./Home.css";
 
 const Home = () => {
-  return <div className="px-8">This is Home page</div>;
+  const [homeServices, setHomeServices] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/homepageServices")
+      .then((res) => res.json())
+      .then((data) => setHomeServices(data));
+  }, []);
+
+  return (
+    <div className="px-8 py-5">
+      <section className="banner-container">
+        <div></div>
+      </section>
+
+      <section className="my-6 bg-slate-100 p-4">
+        <div>
+          <h2 className="text-center text-3xl font-bold">My Services</h2>
+        </div>
+
+        <div className="service-container mt-5">
+          {homeServices.map((service) => (
+            <Service key={service._id} service={service}></Service>
+          ))}
+        </div>
+        <div className="text-center mt-8 ">
+          <Link to="/services">
+            <button className="btn btn-active">See All Services</button>
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Home;
