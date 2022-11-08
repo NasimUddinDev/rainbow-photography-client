@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import "./Home.css";
 import { Link } from "react-router-dom";
 import Service from "../../components/Service/Service";
-import "./Home.css";
 
 const Home = () => {
   const [homeServices, setHomeServices] = useState([]);
@@ -14,7 +14,12 @@ const Home = () => {
   return (
     <div className="px-8 py-5">
       <section className="banner-container">
-        <div></div>
+        <div>
+          <h2 className="lg:text-6xl text-white">
+            Make Memories on your <br /> Wedding day <br /> That will last a
+            Lifetime
+          </h2>
+        </div>
       </section>
 
       <section className="my-6 bg-slate-100 p-4">

@@ -2,13 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const Service = ({ service }) => {
   const { _id, title, description, picture, price } = service;
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <figure>
-        <img src={picture} alt="" />
+        <PhotoProvider>
+          <PhotoView src={picture}>
+            <img src={picture} alt="" title="Click to zoom" />
+          </PhotoView>
+        </PhotoProvider>
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
