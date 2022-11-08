@@ -2,13 +2,24 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import Service from "../../components/Service/Service";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import Contact from "../../components/Contact/Contact";
 
 const Home = () => {
   const [homeServices, setHomeServices] = useState([]);
+  const [gallery, setGallery] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:5000/homepageServices")
       .then((res) => res.json())
       .then((data) => setHomeServices(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/gallery")
+      .then((res) => res.json())
+      .then((data) => setGallery(data));
   }, []);
 
   return (
@@ -37,6 +48,30 @@ const Home = () => {
             <button className="btn btn-active">See All Services</button>
           </Link>
         </div>
+      </section>
+
+      <section className="py-5 px-10">
+        <div>
+          <h2 className="text-4xl font-bold text-center mb-4">Photo Gallery</h2>
+        </div>
+        <div className="gallery-container md:grid-cols-2 grid lg:grid-cols-4 gap-3">
+          {gallery.map((img) => (
+            <PhotoProvider>
+              <PhotoView src={img.picture}>
+                <img
+                  key={img._id}
+                  src={img.picture}
+                  alt=""
+                  className="w-full h-80"
+                />
+              </PhotoView>
+            </PhotoProvider>
+          ))}
+        </div>
+      </section>
+
+      <section className="p-4 bg-slate-50">
+        <Contact></Contact>
       </section>
     </div>
   );

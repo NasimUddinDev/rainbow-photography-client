@@ -31,6 +31,7 @@ const Footer = () => {
         <span className="footer-title text-lg">Services</span>
         {footerService.map((service) => (
           <Link
+            key={service._id}
             to={`/serviceDetails/${service._id}`}
             className="link link-hover"
           >

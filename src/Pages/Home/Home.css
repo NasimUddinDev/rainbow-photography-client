@@ -22,3 +22,9 @@
   height: 250px;
   cursor: pointer;
 }
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  gap: 25px;
+}
