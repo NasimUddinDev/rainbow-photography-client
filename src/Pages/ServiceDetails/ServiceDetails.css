@@ -1,0 +1,10 @@
+.service-details-container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  gap: 30px;
+}
+
+.service-details-container img {
+  width: 100%;
+  height: 400px;
+}
