@@ -12,7 +12,7 @@ const AddService = () => {
 
     const service = { picture, title, price, description };
 
-    fetch(`http://localhost:5000/services`, {
+    fetch(`https://rainbow-photography-server-nasim0994.vercel.app/services`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(service),

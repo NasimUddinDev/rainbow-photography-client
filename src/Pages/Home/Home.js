@@ -11,13 +11,15 @@ const Home = () => {
   const [gallery, setGallery] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/homepageServices")
+    fetch(
+      " https://rainbow-photography-server-nasim0994.vercel.app/homepageServices"
+    )
       .then((res) => res.json())
       .then((data) => setHomeServices(data));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/gallery")
+    fetch("https://rainbow-photography-server-nasim0994.vercel.app/gallery")
       .then((res) => res.json())
       .then((data) => setGallery(data));
   }, []);

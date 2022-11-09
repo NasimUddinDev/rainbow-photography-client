@@ -9,6 +9,7 @@ import Services from "./../Pages/Services/Services";
 import MyReview from "./../Pages/MyReview/MyReview";
 import AddService from "./../Pages/AddService/AddService";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdateReview from "../Pages/MyReview/UpdateReview/UpdateReview";
 
 const router = createBrowserRouter([
   {
@@ -26,17 +27,30 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch(`http://localhost:5000/services`),
+        loader: () =>
+          fetch(
+            `https://rainbow-photography-server-nasim0994.vercel.app/services`
+          ),
       },
       {
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://rainbow-photography-server-nasim0994.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/updateReview/:id",
+        element: <UpdateReview></UpdateReview>,
+        loader: ({ params }) =>
+          fetch(
+            `https://rainbow-photography-server-nasim0994.vercel.app/reviews/${params.id}`
+          ),
       },
       {
         path: "/myReview",

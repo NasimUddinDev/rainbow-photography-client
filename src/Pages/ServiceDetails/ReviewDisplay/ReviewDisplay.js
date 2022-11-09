@@ -3,7 +3,7 @@ import { AiFillStar } from "react-icons/ai";
 
 const ReviewDisplay = ({ reviews, setReviews, service }) => {
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews`)
+    fetch(`https://rainbow-photography-server-nasim0994.vercel.app/reviews`)
       .then((res) => res.json())
       .then((data) => {
         const thisReview = data.filter(
@@ -17,8 +17,8 @@ const ReviewDisplay = ({ reviews, setReviews, service }) => {
   return (
     <>
       {reviews.length >= 1 ? (
-        reviews.map((review) => (
-          <div key={review._id} className="mb-5 border-b-2 pb-3">
+        reviews.map((review, index) => (
+          <div key={index} className="mb-5 border-b-2 pb-3">
             <div className="flex items-cenetr gap-2">
               <img
                 src={review?.userImg}

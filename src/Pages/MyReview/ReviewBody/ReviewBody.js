@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
-const ReviewBody = ({ review, handelReviewDelete, handelReviewEdite }) => {
-  const { _id, message, date, time, serviceId } = review;
+const ReviewBody = ({ review, handelReviewDelete }) => {
+  const { _id, message, date, time, serviceId, rating } = review;
   const [reviewService, setReviewService] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${serviceId}`)
+    fetch(
+      `https://rainbow-photography-server-nasim0994.vercel.app/services/${serviceId}`
+    )
       .then((res) => res.json())
       .then((data) => setReviewService(data));
   }, [serviceId]);
@@ -50,20 +53,30 @@ const ReviewBody = ({ review, handelReviewDelete, handelReviewEdite }) => {
           name="message"
           defaultValue={message}
           className="outline-none"
+          readOnly
         />
       </td>
+
+      <td>
+        <input
+          type="text"
+          name="message"
+          defaultValue={rating}
+          className="outline-none"
+          readOnly
+        />
+      </td>
+
       <td>
         <div>{date}</div>
         <div>{time}</div>
       </td>
+
       <th>
-        <button
-          onClick={() => handelReviewEdite(_id)}
-          className="btn btn-ghost "
-        >
-          <MdOutlineModeEditOutline />
-          Edite
-        </button>
+        {/* The button to open modal */}
+        <Link to={`/updateReview/${_id}`} className="btn">
+          <MdOutlineModeEditOutline /> Edite
+        </Link>
       </th>
     </tr>
   );

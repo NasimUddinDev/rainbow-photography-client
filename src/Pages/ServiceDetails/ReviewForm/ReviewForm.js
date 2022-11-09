@@ -33,7 +33,7 @@ const ReviewForm = ({ service, reviews, setReviews }) => {
       time,
     };
 
-    fetch(`http://localhost:5000/reviews`, {
+    fetch(`https://rainbow-photography-server-nasim0994.vercel.app/reviews`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(review),
