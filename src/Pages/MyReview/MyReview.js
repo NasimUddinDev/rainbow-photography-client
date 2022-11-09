@@ -40,10 +40,10 @@ const MyReview = () => {
   const handelReviewEdite = (id) => {};
 
   return (
-    <div className="px-10 py-5">
+    <div className="px-10 py-8">
       {myReviews.length > 0 ? (
         <>
-          <h2 className="text-2xl text-center py-2 font-bold">
+          <h2 className="text-2xl text-center pb-4 font-bold">
             My Review: {myReviews.length}
           </h2>
 

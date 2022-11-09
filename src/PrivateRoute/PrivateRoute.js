@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import "./PrivateRoute.css";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Context/ContextProvider";
 
@@ -8,7 +9,11 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <h2>Loadding....</h2>;
+    return (
+      <div className="spinner">
+        <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-14 w-14"></div>
+      </div>
+    );
   }
 
   if (!user) {

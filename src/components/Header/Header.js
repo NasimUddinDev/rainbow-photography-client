@@ -69,9 +69,11 @@ const Header = () => {
                     </button>
                   </li>
 
-                  <li className="w-12 h-12 border rounded-full border-gray-600 overflow-hidden">
-                    <img src={user?.photoURL} alt="" className="w-full p-0" />
-                  </li>
+                  <div className="avatar online ">
+                    <div className="w-12 rounded-full">
+                      <img src={user?.photoURL} alt="" />
+                    </div>
+                  </div>
                 </>
               ) : (
                 <li>
