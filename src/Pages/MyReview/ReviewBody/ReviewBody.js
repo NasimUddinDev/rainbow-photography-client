@@ -4,7 +4,7 @@ import { MdOutlineModeEditOutline } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
 
 const ReviewBody = ({ review, handelReviewDelete, handelReviewEdite }) => {
-  const { _id, message, date, serviceId } = review;
+  const { _id, message, date, time, serviceId } = review;
   const [reviewService, setReviewService] = useState({});
 
   useEffect(() => {
@@ -12,8 +12,6 @@ const ReviewBody = ({ review, handelReviewDelete, handelReviewEdite }) => {
       .then((res) => res.json())
       .then((data) => setReviewService(data));
   }, [serviceId]);
-
-  console.log(reviewService);
 
   return (
     <tr>
@@ -55,7 +53,8 @@ const ReviewBody = ({ review, handelReviewDelete, handelReviewEdite }) => {
         />
       </td>
       <td>
-        <div>{date?.slice(0, 10)}</div>
+        <div>{date}</div>
+        <div>{time}</div>
       </td>
       <th>
         <button

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./ServiceDetails.css";
 import { useLoaderData } from "react-router-dom";
 import { TbCurrencyTaka } from "react-icons/tb";
-
 import ReviewForm from "./ReviewForm/ReviewForm";
 import ReviewDisplay from "./ReviewDisplay/ReviewDisplay";
 import Sidebar from "./Sidebar/Sidebar";
@@ -45,7 +44,7 @@ const ServiceDetails = () => {
         </div>
 
         {/* Old Review */}
-        <div className="mt-6 border p-7 bg-slate-100 flex flex-col-reverse">
+        <div className="mt-6 border p-7 bg-slate-100">
           <ReviewDisplay
             service={service}
             reviews={reviews}

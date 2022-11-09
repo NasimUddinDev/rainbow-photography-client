@@ -8,17 +8,30 @@ const ReviewForm = ({ service, reviews, setReviews }) => {
   const handelReviewForm = (e) => {
     e.preventDefault();
 
-    const form = e.target;
-    const userName = form.name.value;
-    const userImg = form.img.value;
-    const message = form.message.value;
-
+    const userName = user?.displayName;
     const email = user?.email;
     const serviceId = service._id;
 
-    const date = new Date();
+    const form = e.target;
+    const userImg = form.img.value;
+    const message = form.message.value;
+    const rating = form.rating.value;
 
-    const review = { userName, userImg, message, email, serviceId, date };
+    const now = new Date();
+    const date = now.toDateString();
+    const time =
+      now.getHours() + "-" + now.getMinutes() + "-" + now.getSeconds();
+
+    const review = {
+      userName,
+      userImg,
+      message,
+      email,
+      serviceId,
+      rating,
+      date,
+      time,
+    };
 
     fetch(`http://localhost:5000/reviews`, {
       method: "POST",
@@ -29,7 +42,7 @@ const ReviewForm = ({ service, reviews, setReviews }) => {
       .then((data) => {
         if (data.acknowledged) {
           form.reset();
-          const newReview = [...reviews, review];
+          const newReview = [review, ...reviews];
           setReviews(newReview);
         }
       })
@@ -40,21 +53,31 @@ const ReviewForm = ({ service, reviews, setReviews }) => {
     <>
       {user ? (
         <form onSubmit={handelReviewForm} className="card-body">
+          <div className="flex items-center gap-1">
+            <img
+              src={user?.photoURL}
+              alt=""
+              className="w-10 h-10 rounded-full"
+            />
+            <div>
+              <h3 className="text-lg font-bold -mb-1">{user?.displayName}</h3>
+              <small>{user?.email}</small>
+            </div>
+          </div>
+
           <div className="flex items-center gap-4">
-            <div className="form-control w-1/2">
+            <div className="form-control w-1/3">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text">Rating</span>
               </label>
               <input
-                type="text"
-                name="name"
-                placeholder="Name"
+                type="number"
+                name="rating"
+                placeholder="Number of Rating (out of 5)"
                 className="input input-bordered"
-                defaultValue={user?.displayName}
-                required
               />
             </div>
-            <div className="form-control w-1/2">
+            <div className="form-control w-2/3">
               <label className="label">
                 <span className="label-text">Image Link</span>
               </label>
