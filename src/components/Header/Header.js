@@ -68,6 +68,10 @@ const Header = () => {
                       LogOut
                     </button>
                   </li>
+
+                  <li className="w-12 h-12 border rounded-full border-gray-600 overflow-hidden">
+                    <img src={user?.photoURL} alt="" className="w-full p-0" />
+                  </li>
                 </>
               ) : (
                 <li>

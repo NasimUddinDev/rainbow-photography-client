@@ -8,13 +8,13 @@ import ReviewDisplay from "./ReviewDisplay/ReviewDisplay";
 import Sidebar from "./Sidebar/Sidebar";
 
 const ServiceDetails = () => {
-  const [reviews, setReviews] = useState([]);
   const service = useLoaderData();
   const { title, description, picture, price } = service;
+  const [reviews, setReviews] = useState([]);
 
   return (
     <div className="px-12 py-5 service-details-container bg-slate-100">
-      <div className="p-4 bg-white rounded-md">
+      <section className="p-4 bg-white rounded-md">
         {/* Service Details */}
         <div className="px-4">
           <img src={picture} alt="" className="service-img" />
@@ -46,16 +46,20 @@ const ServiceDetails = () => {
 
         {/* Old Review */}
         <div className="mt-6 border p-7 bg-slate-100 flex flex-col-reverse">
-          <ReviewDisplay reviews={reviews} setReviews={setReviews}>
+          <ReviewDisplay
+            service={service}
+            reviews={reviews}
+            setReviews={setReviews}
+          >
             {" "}
           </ReviewDisplay>
         </div>
-      </div>
+      </section>
 
       {/*--------------- Sidebar ----------*/}
-      <div className="p-4 bg-white rounded-md ">
+      <section className="p-4 bg-white rounded-md ">
         <Sidebar />
-      </div>
+      </section>
     </div>
   );
 };

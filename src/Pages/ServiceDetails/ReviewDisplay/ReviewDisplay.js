@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
 
-const ReviewDisplay = ({ reviews, setReviews }) => {
+const ReviewDisplay = ({ reviews, setReviews, service }) => {
   useEffect(() => {
     fetch(`http://localhost:5000/reviews`)
       .then((res) => res.json())
       .then((data) => {
-        setReviews(data);
+        const thisReview = data.filter(
+          (review) => review.serviceId === service._id
+        );
+        setReviews(thisReview);
       })
       .catch((error) => console.error(error));
-  }, [setReviews]);
+  }, [service._id, setReviews]);
 
   return (
     <>

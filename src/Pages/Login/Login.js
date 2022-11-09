@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Context/ContextProvider";
 
 const Login = () => {
-  const { googleSignup, login } = useContext(AuthContext);
+  const { googleSignup, login, setLoading } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -24,7 +24,10 @@ const Login = () => {
         console.log(res.user);
         navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   // Handel Google Signup
@@ -34,7 +37,10 @@ const Login = () => {
         navigate(from, { replace: true });
         console.log(res.user);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(() => {
+        setLoading(false);
+      });
   };
   return (
     <div className="hero bg-base-200 py-4">

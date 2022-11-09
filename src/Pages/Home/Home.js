@@ -56,14 +56,9 @@ const Home = () => {
         </div>
         <div className="gallery-container md:grid-cols-2 grid lg:grid-cols-4 gap-3">
           {gallery.map((img) => (
-            <PhotoProvider>
+            <PhotoProvider key={img._id}>
               <PhotoView src={img.picture}>
-                <img
-                  key={img._id}
-                  src={img.picture}
-                  alt=""
-                  className="w-full h-80"
-                />
+                <img src={img.picture} alt="" className="w-full h-80" />
               </PhotoView>
             </PhotoProvider>
           ))}

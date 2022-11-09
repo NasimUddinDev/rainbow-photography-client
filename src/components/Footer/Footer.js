@@ -12,7 +12,6 @@ const Footer = () => {
       .then((data) => setFooterService(data));
   }, []);
 
-  console.log(footerService);
   return (
     <footer className="footer p-10 bg-slate-200 text-base-content">
       <div>
