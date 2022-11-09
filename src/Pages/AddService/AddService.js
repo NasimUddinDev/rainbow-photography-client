@@ -30,15 +30,15 @@ const AddService = () => {
       .catch((error) => console.error(error));
   };
   return (
-    <div className="px-10 py-5">
+    <div className="md:px-10 py-5">
       <h2 className="text-center text-3xl font-bold">Add New Service</h2>
 
       <form
         onSubmit={handelNewService}
-        className="card-body w-1/2 m-auto bg-slate-100 rounded-md"
+        className="card-body lg:w-1/2 m-auto bg-slate-100 rounded-md"
       >
-        <div className="flex items-center gap-4">
-          <div className="form-control w-1/2">
+        <div className="lg:flex items-center gap-4">
+          <div className="form-control lg:w-1/2">
             <label className="label">
               <span className="label-text">Service Image Link</span>
             </label>
@@ -50,7 +50,7 @@ const AddService = () => {
               required
             />
           </div>
-          <div className="form-control w-1/2">
+          <div className="form-control lg:w-1/2">
             <label className="label">
               <span className="label-text">Service Title</span>
             </label>

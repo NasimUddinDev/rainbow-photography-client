@@ -38,16 +38,18 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Service section */}
       <section className="my-6 bg-slate-100 p-4">
         <div>
           <h2 className="text-center text-3xl font-bold">My Services</h2>
         </div>
 
-        <div className="service-container mt-5">
+        <div className="service-container mt-5 grid grid-cols-1 lg:grid-cols-3 gap-5">
           {homeServices.map((service) => (
             <Service key={service._id} service={service}></Service>
           ))}
         </div>
+
         <div className="text-center mt-8 ">
           <Link to="/services">
             <button className="btn btn-active">See All Services</button>
@@ -55,6 +57,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Gallery Section */}
       <section className="py-5 px-10">
         <div>
           <h2 className="text-4xl font-bold text-center mb-4">Photo Gallery</h2>
@@ -70,6 +73,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Conract Section */}
       <section className="p-4 bg-slate-50">
         <Contact></Contact>
       </section>

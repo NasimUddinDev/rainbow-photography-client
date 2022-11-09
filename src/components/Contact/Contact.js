@@ -2,7 +2,6 @@ import React from "react";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
-
 import { IoMdCall } from "react-icons/io";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 
@@ -11,7 +10,7 @@ const Contact = () => {
     <>
       <h2 className="text-center font-bold text-4xl mb-4">Contact Me</h2>
 
-      <div className="contact-container">
+      <div className="grid md:grid-cols-2 gap-5">
         <div className="p-8  rounded-md py-12 bg-slate-200 shadow-lg">
           <h2 className="text-cenetr text-2xl font-bold mb-4">Contact Info</h2>
 
@@ -73,13 +72,15 @@ const Contact = () => {
                 className="input input-bordered w-full max-w-xs"
               />
             </div>
-            <div className="mb-4">
+
+            <div className="mb-4 w-full">
               <input
-                type="text"
+                type="email"
                 placeholder="Email"
                 className="input input-bordered w-full max-w-xs"
               />
             </div>
+
             <div className="w-full mb-4">
               <textarea
                 className="textarea textarea-bordered w-full"
