@@ -14,8 +14,8 @@ const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
 
   return (
-    <div className="px-12 py-5 service-details-container bg-slate-100">
-      <section className="p-4 bg-white rounded-md">
+    <div className="px-12 py-5 bg-slate-100  lg:flex gap-4">
+      <section className="p-4 bg-white rounded-md lg:w-2/3">
         {/* Service Details */}
         <div className="px-4">
           <img src={picture} alt="" className="service-img" />
@@ -58,7 +58,7 @@ const ServiceDetails = () => {
       </section>
 
       {/*--------------- Sidebar ----------*/}
-      <section className="p-4 bg-white rounded-md ">
+      <section className="p-4 bg-white rounded-md mt-4 lg:mt-0 lg:w-1/3">
         <Sidebar />
       </section>
     </div>

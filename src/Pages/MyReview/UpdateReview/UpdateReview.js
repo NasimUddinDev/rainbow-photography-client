@@ -60,7 +60,7 @@ const UpdateReview = () => {
       </h2>
       <form
         onSubmit={handelReviewEdite}
-        className="w-1/3 mx-auto bg-slate-100 p-10 rounded-md"
+        className="w-full md:w-2/3 lg:w-1/2  mx-auto bg-slate-100 p-10 rounded-md"
       >
         <div className="form-control mb-3">
           <label className="label font-semibold">

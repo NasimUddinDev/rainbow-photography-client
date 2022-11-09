@@ -56,8 +56,8 @@ const MyReview = () => {
           <div className="overflow-x-auto w-full">
             <table className="table w-full border border-stone-200">
               <thead className="review-table-header">
-                <tr>
-                  <th></th>
+                <tr className="flex flex-col lg:table-row mb-5 lg:mb-0 bg-slate-400 lg:bg-white">
+                  <th>Delete</th>
                   <th>Service Info</th>
                   <th>Review</th>
                   <th>Rating</th>

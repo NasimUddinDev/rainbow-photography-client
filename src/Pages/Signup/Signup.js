@@ -7,7 +7,7 @@ import { UseTitle } from "../../utils/DaynamicTitle";
 const Signup = () => {
   UseTitle("Signup || Rainbow Photography");
 
-  const { googleSignup, signup } = useContext(AuthContext);
+  const { googleSignup, signup, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/home";
@@ -17,8 +17,8 @@ const Signup = () => {
     e.preventDefault();
 
     const form = e.target;
-    const name = form.name.value;
-    const img = form.img.value;
+    const userName = form.name.value;
+    const userImg = form.img.value;
     const email = form.email.value;
     const password = form.password.value;
 
@@ -27,8 +27,23 @@ const Signup = () => {
         form.reset();
         navigate("/login");
         console.log(res.user);
+        handelUserProfile(userName, userImg);
       })
       .catch((error) => console.error(error));
+  };
+
+  // Handel user Profiule
+  const handelUserProfile = (userName, userImg) => {
+    const profile = {
+      displayName: userName,
+      photoURL: userImg,
+    };
+
+    updateUser(profile)
+      .then((res) => {})
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   // Handel Google Signup
@@ -56,6 +71,7 @@ const Signup = () => {
                   name="name"
                   placeholder="Name"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control mb-3">
@@ -64,6 +80,7 @@ const Signup = () => {
                   name="img"
                   placeholder="Img Link"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control mb-3">

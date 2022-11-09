@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase";
 
@@ -28,6 +29,12 @@ const ContextProvider = ({ children }) => {
   const login = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // User Name And Photo
+  const updateUser = (profile) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, profile);
   };
 
   //Google Signup
@@ -54,6 +61,7 @@ const ContextProvider = ({ children }) => {
     user,
     loading,
     signup,
+    updateUser,
     login,
     setLoading,
     googleSignup,

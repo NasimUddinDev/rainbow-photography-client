@@ -17,8 +17,8 @@ const ReviewBody = ({ review, handelReviewDelete }) => {
   }, [serviceId]);
 
   return (
-    <tr>
-      <th>
+    <tr className="flex flex-col lg:table-row mb-5 bg-slate-400 lg:bg-white">
+      <th className="bg-slate-500 lg:bg-white mb-2 rounded-none">
         <button
           onClick={() => handelReviewDelete(_id)}
           className="text-2xl text-red-700"
@@ -28,7 +28,7 @@ const ReviewBody = ({ review, handelReviewDelete }) => {
         </button>
       </th>
 
-      <td>
+      <td className="bg-slate-500 lg:bg-white mb-2">
         <div className="flex items-center space-x-3">
           <div className="avatar">
             <div className="mask mask-squircle w-14 h-14">
@@ -47,32 +47,20 @@ const ReviewBody = ({ review, handelReviewDelete }) => {
         </div>
       </td>
 
-      <td>
-        <input
-          type="text"
-          name="message"
-          defaultValue={message}
-          className="outline-none"
-          readOnly
-        />
+      <td className="bg-slate-500 lg:bg-white mb-2">
+        <p className="text-xl">{message}</p>
       </td>
 
-      <td>
-        <input
-          type="text"
-          name="message"
-          defaultValue={rating}
-          className="outline-none"
-          readOnly
-        />
+      <td className="bg-slate-500 lg:bg-white mb-2">
+        <p className="text-xl">{rating}</p>
       </td>
 
-      <td>
+      <td className="bg-slate-500 lg:bg-white mb-2">
         <div>{date}</div>
         <div>{time}</div>
       </td>
 
-      <th>
+      <th className="bg-slate-500 lg:bg-white rounded-none">
         {/* The button to open modal */}
         <Link to={`/updateReview/${_id}`} className="btn">
           <MdOutlineModeEditOutline /> Edite
