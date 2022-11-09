@@ -5,8 +5,11 @@ import Service from "../../components/Service/Service";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import Contact from "../../components/Contact/Contact";
+import { UseTitle } from "../../utils/DaynamicTitle";
 
 const Home = () => {
+  UseTitle("Home || Rainbow Photography");
+
   const [homeServices, setHomeServices] = useState([]);
   const [gallery, setGallery] = useState([]);
 

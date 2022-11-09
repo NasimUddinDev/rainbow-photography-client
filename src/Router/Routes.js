@@ -25,6 +25,10 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
         path: "/services",
         element: <Services></Services>,
         loader: () =>
@@ -40,10 +44,7 @@ const router = createBrowserRouter([
             `https://rainbow-photography-server-nasim0994.vercel.app/services/${params.id}`
           ),
       },
-      {
-        path: "/blog",
-        element: <Blog></Blog>,
-      },
+
       {
         path: "/updateReview/:id",
         element: <UpdateReview></UpdateReview>,

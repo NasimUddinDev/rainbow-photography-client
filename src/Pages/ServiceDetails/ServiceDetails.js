@@ -5,8 +5,10 @@ import { TbCurrencyTaka } from "react-icons/tb";
 import ReviewForm from "./ReviewForm/ReviewForm";
 import ReviewDisplay from "./ReviewDisplay/ReviewDisplay";
 import Sidebar from "./Sidebar/Sidebar";
+import { UseTitle } from "../../utils/DaynamicTitle";
 
 const ServiceDetails = () => {
+  UseTitle("Services Details || Rainbow Photography");
   const service = useLoaderData();
   const { title, description, picture, price } = service;
   const [reviews, setReviews] = useState([]);

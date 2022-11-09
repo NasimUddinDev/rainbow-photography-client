@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/ContextProvider";
+import { UseTitle } from "../../utils/DaynamicTitle";
 import "./MyReview.css";
 
 import ReviewBody from "./ReviewBody/ReviewBody";
 
 const MyReview = () => {
+  UseTitle("My Review || Rainbow Photography");
+
   const { user } = useContext(AuthContext);
   const [myReviews, setMyReviews] = useState([]);
 

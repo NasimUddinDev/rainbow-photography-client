@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { UseTitle } from "../../../utils/DaynamicTitle";
 
 const UpdateReview = () => {
+  UseTitle("Update Review || Rainbow Photography");
+
   const { _id, message, serviceId, rating } = useLoaderData();
   const [reviewService, setReviewService] = useState({});
 

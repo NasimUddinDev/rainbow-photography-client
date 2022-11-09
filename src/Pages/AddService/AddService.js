@@ -1,6 +1,9 @@
 import React from "react";
+import { UseTitle } from "../../utils/DaynamicTitle";
 
 const AddService = () => {
+  UseTitle("Add Service || Rainbow Photography");
+
   const handelNewService = (e) => {
     e.preventDefault();
 

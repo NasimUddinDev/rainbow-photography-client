@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Context/ContextProvider";
+import { UseTitle } from "../../utils/DaynamicTitle";
 
 const Login = () => {
+  UseTitle("Login || Rainbow Photography");
   const { googleSignup, login, setLoading } = useContext(AuthContext);
 
   const navigate = useNavigate();
