@@ -66,7 +66,6 @@ const MyReview = () => {
                 </tr>
               </thead>
 
-              {/* Body */}
               <tbody>
                 {myReviews.map((review) => (
                   <ReviewBody

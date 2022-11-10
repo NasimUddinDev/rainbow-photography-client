@@ -61,7 +61,6 @@ const ReviewBody = ({ review, handelReviewDelete }) => {
       </td>
 
       <th className="bg-slate-500 lg:bg-white rounded-none">
-        {/* The button to open modal */}
         <Link to={`/updateReview/${_id}`} className="btn">
           <MdOutlineModeEditOutline /> Edite
         </Link>
