@@ -6,12 +6,14 @@ import ReviewForm from "./ReviewForm/ReviewForm";
 import ReviewDisplay from "./ReviewDisplay/ReviewDisplay";
 import Sidebar from "./Sidebar/Sidebar";
 import { UseTitle } from "../../utils/DaynamicTitle";
+import { GoPrimitiveDot } from "react-icons/go";
 
 const ServiceDetails = () => {
   UseTitle("Services Details || Rainbow Photography");
   const service = useLoaderData();
   const { title, description, picture, price } = service;
   const [reviews, setReviews] = useState([]);
+  const listDescription = description.split(".");
 
   return (
     <div className="lg:px-12 py-5 bg-slate-100  lg:flex gap-4">
@@ -26,7 +28,12 @@ const ServiceDetails = () => {
               <TbCurrencyTaka /> {price}
             </h5>
           </div>
-          <p className="text-lg text-slate-600">{description}</p>
+          {listDescription.map((list, index) => (
+            <p key={index} className="flex items-center gap-2">
+              <GoPrimitiveDot />
+              {list}.
+            </p>
+          ))}
         </div>
 
         {/* line */}
