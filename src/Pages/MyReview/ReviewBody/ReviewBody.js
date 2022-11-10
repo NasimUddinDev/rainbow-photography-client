@@ -5,7 +5,7 @@ import { TbCurrencyTaka } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
 const ReviewBody = ({ review, handelReviewDelete }) => {
-  const { _id, message, date, time, serviceId, rating } = review;
+  const { _id, message, dateTime, serviceId, rating } = review;
   const [reviewService, setReviewService] = useState({});
 
   useEffect(() => {
@@ -56,8 +56,7 @@ const ReviewBody = ({ review, handelReviewDelete }) => {
       </td>
 
       <td className="bg-slate-500 lg:bg-white mb-2">
-        <div>{date}</div>
-        <div>{time}</div>
+        <div>{dateTime}</div>
       </td>
 
       <th className="bg-slate-500 lg:bg-white rounded-none">

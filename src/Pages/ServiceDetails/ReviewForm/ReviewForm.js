@@ -17,10 +17,16 @@ const ReviewForm = ({ service, reviews, setReviews }) => {
     const message = form.message.value;
     const rating = form.rating.value;
 
-    const now = new Date();
-    const date = now.toDateString();
+    const fullDate = new Date();
+    const date = fullDate.toDateString();
     const time =
-      now.getHours() + "-" + now.getMinutes() + "-" + now.getSeconds();
+      fullDate.getHours() +
+      "-" +
+      fullDate.getMinutes() +
+      "-" +
+      fullDate.getSeconds();
+
+    const dateTime = date + " " + time;
 
     const review = {
       userName,
@@ -29,8 +35,7 @@ const ReviewForm = ({ service, reviews, setReviews }) => {
       email,
       serviceId,
       rating,
-      date,
-      time,
+      dateTime,
     };
 
     fetch(`https://rainbow-photography-server-nasim0994.vercel.app/reviews`, {
