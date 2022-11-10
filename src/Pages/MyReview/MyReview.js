@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/ContextProvider";
 import { UseTitle } from "../../utils/DaynamicTitle";
 import "./MyReview.css";
@@ -47,7 +48,14 @@ const MyReview = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
-            alert(`${user.name} Delete successuly`);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Delete Success",
+              showConfirmButton: false,
+              timer: 1000,
+            });
+
             const remainingReview = myReviews.filter(
               (review) => review._id !== id
             );

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Context/ContextProvider";
 import { UseTitle } from "../../utils/DaynamicTitle";
+import Swal from "sweetalert2";
 
 const Login = () => {
   UseTitle("Login || Rainbow Photography");
@@ -27,6 +28,14 @@ const Login = () => {
         const user = res.user;
         console.log(user);
         setmessage("");
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Log In Success",
+          showConfirmButton: false,
+          timer: 1000,
+        });
 
         const userEmail = { email: user.email };
 

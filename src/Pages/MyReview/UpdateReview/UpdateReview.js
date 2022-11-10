@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { UseTitle } from "../../../utils/DaynamicTitle";
 
 const UpdateReview = () => {
@@ -44,15 +45,21 @@ const UpdateReview = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          alert("update success");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Review update success",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+
           form.reset();
           navigate("/myReview");
         }
       })
       .catch((error) => console.error(error));
-
-    console.log(updateReview);
   };
+
   return (
     <div className="p-12">
       <h2 className="text-center text-3xl font-bold mb-4">

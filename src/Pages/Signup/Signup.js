@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Context/ContextProvider";
 import { UseTitle } from "../../utils/DaynamicTitle";
+import Swal from "sweetalert2";
 
 const Signup = () => {
   UseTitle("Signup || Rainbow Photography");
@@ -29,6 +30,14 @@ const Signup = () => {
         console.log(user);
         setmessage("");
         form.reset();
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Sing Up Success",
+          showConfirmButton: false,
+          timer: 1000,
+        });
 
         handelUserProfile(userName, userImg);
 
