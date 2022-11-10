@@ -17,6 +17,10 @@ const ReviewForm = ({ service, reviews, setReviews }) => {
     const message = form.message.value;
     const rating = form.rating.value;
 
+    if (rating > 5) {
+      return alert("Rating should be kept within 5");
+    }
+
     const fullDate = new Date();
     const date = fullDate.toDateString();
     const time =
@@ -84,7 +88,7 @@ const ReviewForm = ({ service, reviews, setReviews }) => {
             </div>
             <div className="form-control md:w-2/3">
               <label className="label">
-                <span className="label-text">Image Link</span>
+                <span className="label-text">Your Image</span>
               </label>
               <input
                 type="text"
