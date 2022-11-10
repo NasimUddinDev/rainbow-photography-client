@@ -66,7 +66,7 @@ const MyReview = () => {
   };
 
   return (
-    <div className="px-16 py-8">
+    <div className="lg:px-16 py-8">
       {loader && <h2 className="text-xl font-bold text-center">Loadding...</h2>}
       {myReviews.length > 0 ? (
         <>

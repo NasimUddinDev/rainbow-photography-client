@@ -55,15 +55,15 @@ const ReviewDisplay = ({ reviews, setReviews, service }) => {
               />
               <div>
                 <h4 className="font-semibold -mb-1">{review?.userName}</h4>
-                <div className=" flex items-center gap-4 text-slate-400">
+                <div className="flex items-center gap-4 text-slate-400">
                   <div>
                     <small className="flex items-center">
-                      Rating: {review.rating > 0 ? review?.rating : 0}
-                      <AiFillStar className="text-red-500" />
+                      {review.rating > 0 ? review?.rating : 0}
+                      <AiFillStar className="text-slate-600" />
                     </small>
                   </div>
                   <div>
-                    <small>{review?.date}</small>
+                    <small>{review?.dateTime}</small>
                   </div>
                 </div>
               </div>

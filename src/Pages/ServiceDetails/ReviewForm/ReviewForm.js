@@ -70,8 +70,8 @@ const ReviewForm = ({ service, reviews, setReviews }) => {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="form-control w-1/3">
+          <div className="md:flex items-center gap-4">
+            <div className="form-control md:w-1/3">
               <label className="label">
                 <span className="label-text">Rating</span>
               </label>
@@ -82,7 +82,7 @@ const ReviewForm = ({ service, reviews, setReviews }) => {
                 className="input input-bordered"
               />
             </div>
-            <div className="form-control w-2/3">
+            <div className="form-control md:w-2/3">
               <label className="label">
                 <span className="label-text">Image Link</span>
               </label>

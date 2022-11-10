@@ -60,11 +60,11 @@ const Contact = () => {
           <h2 className="text-2xl font-bold mb-4">Send a Message</h2>
 
           <form>
-            <div className="flex items-center gap-4 mb-4">
+            <div className="lg:flex items-center gap-4 mb-4">
               <input
                 type="text"
                 placeholder="First Name"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs mb-3 lg:mb-0"
               />
               <input
                 type="text"

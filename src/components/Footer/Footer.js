@@ -15,8 +15,8 @@ const Footer = () => {
   return (
     <footer className="footer p-10 bg-slate-200 text-base-content">
       <div>
-        <Link to="/home" className="text-3xl font-bold">
-          <h2>
+        <Link to="/home">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">
             {" "}
             Rainbow
             <span className="text-rose-600 ">Photography</span>

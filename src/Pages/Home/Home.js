@@ -58,7 +58,7 @@ const Home = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-5 px-10">
+      <section className="py-5 lg:px-10">
         <div>
           <h2 className="text-4xl font-bold text-center mb-4">Photo Gallery</h2>
         </div>
@@ -66,7 +66,7 @@ const Home = () => {
           {gallery.map((img) => (
             <PhotoProvider key={img._id}>
               <PhotoView src={img.picture}>
-                <img src={img.picture} alt="" className="w-full h-80" />
+                <img src={img.picture} alt="" className="w-full h-60 lg:h-80" />
               </PhotoView>
             </PhotoProvider>
           ))}

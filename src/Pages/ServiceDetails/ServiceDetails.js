@@ -14,13 +14,13 @@ const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
 
   return (
-    <div className="px-12 py-5 bg-slate-100  lg:flex gap-4">
+    <div className="lg:px-12 py-5 bg-slate-100  lg:flex gap-4">
       <section className="p-4 bg-white rounded-md lg:w-2/3">
         {/* Service Details */}
         <div className="px-4">
           <img src={picture} alt="" className="service-img" />
 
-          <div className="flex items-center justify-between my-3">
+          <div className="md:flex items-center justify-between my-3">
             <h2 className="text-3xl font-semibold">{title}</h2>
             <h5 className="flex items-center font-semibold text-lg">
               <TbCurrencyTaka /> {price}
