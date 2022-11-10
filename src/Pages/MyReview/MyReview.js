@@ -8,18 +8,30 @@ import ReviewBody from "./ReviewBody/ReviewBody";
 const MyReview = () => {
   UseTitle("My Review || Rainbow Photography");
 
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const [myReviews, setMyReviews] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     fetch(
-      `https://rainbow-photography-server-nasim0994.vercel.app/reviews?email=${user.email}`
+      `https://rainbow-photography-server-nasim0994.vercel.app/reviews?email=${user.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("RP-token")}`,
+        },
+      }
     )
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          logout();
+        }
+        return res.json();
+      })
       .then((data) => {
         setMyReviews(data);
+        setLoader(false);
       });
-  }, [user.email]);
+  }, [user.email, logout]);
 
   // Handel Review Delete
   const handelReviewDelete = (id) => {
@@ -47,10 +59,11 @@ const MyReview = () => {
 
   return (
     <div className="px-16 py-8">
+      {loader && <h2 className="text-xl font-bold text-center">Loadding...</h2>}
       {myReviews.length > 0 ? (
         <>
           <h2 className="text-2xl text-center pb-4 font-bold">
-            My Review: {myReviews.length}
+            My Review: {myReviews?.length}
           </h2>
 
           <div className="overflow-x-auto w-full">

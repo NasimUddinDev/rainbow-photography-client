@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Context/ContextProvider";
@@ -7,6 +7,7 @@ import { UseTitle } from "../../utils/DaynamicTitle";
 const Login = () => {
   UseTitle("Login || Rainbow Photography");
   const { googleSignup, login, setLoading } = useContext(AuthContext);
+  const [message, setmessage] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,10 +24,28 @@ const Login = () => {
     login(email, password)
       .then((res) => {
         form.reset();
-        console.log(res.user);
-        navigate(from, { replace: true });
+        const user = res.user;
+        console.log(user);
+        setmessage("");
+
+        const userEmail = { email: user.email };
+
+        // JWT post
+        fetch("https://rainbow-photography-server-nasim0994.vercel.app/jwt", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(userEmail),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("RP-token", data.token);
+            navigate(from, { replace: true });
+          });
       })
-      .catch((error) => console.error(error))
+      .catch((error) => {
+        console.error(error);
+        setmessage(error.message);
+      })
       .finally(() => {
         setLoading(false);
       });
@@ -36,10 +55,28 @@ const Login = () => {
   const handelGoogleSignup = () => {
     googleSignup()
       .then((res) => {
-        navigate(from, { replace: true });
-        console.log(res.user);
+        const user = res.user;
+        console.log(user);
+        setmessage("");
+
+        const userEmail = { email: user.email };
+
+        // JWT post
+        fetch("https://rainbow-photography-server-nasim0994.vercel.app/jwt", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(userEmail),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("RP-token", data.token);
+            navigate(from, { replace: true });
+          });
       })
-      .catch((error) => console.error(error))
+      .catch((error) => {
+        console.error(error);
+        setmessage(error.message);
+      })
       .finally(() => {
         setLoading(false);
       });
@@ -87,6 +124,8 @@ const Login = () => {
                 <button className="btn btn-active">Login</button>
               </div>
             </form>
+
+            <p className="text-red-500">{message}</p>
 
             {/* Others way to Login */}
             <div>

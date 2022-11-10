@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Context/ContextProvider";
@@ -6,6 +6,7 @@ import { UseTitle } from "../../utils/DaynamicTitle";
 
 const Signup = () => {
   UseTitle("Signup || Rainbow Photography");
+  const [message, setmessage] = useState("");
 
   const { googleSignup, signup, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -24,12 +25,30 @@ const Signup = () => {
 
     signup(email, password)
       .then((res) => {
+        const user = res.user;
+        console.log(user);
+        setmessage("");
         form.reset();
-        navigate("/login");
-        console.log(res.user);
+
         handelUserProfile(userName, userImg);
+
+        const userEmail = { email: user.email };
+        // JWT post
+        fetch("https://rainbow-photography-server-nasim0994.vercel.app/jwt", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(userEmail),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("RP-token", data.token);
+            navigate(from, { replace: true });
+          });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setmessage(error.message);
+      });
   };
 
   // Handel user Profiule
@@ -50,9 +69,26 @@ const Signup = () => {
   const handelGoogleSignup = () => {
     googleSignup()
       .then((res) => {
-        navigate(from, { replace: true });
+        const user = res.user;
+        setmessage("");
+        const userEmail = { email: user.email };
+
+        // JWT post
+        fetch("https://rainbow-photography-server-nasim0994.vercel.app/jwt", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(userEmail),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("RP-token", data.token);
+            navigate(from, { replace: true });
+          });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setmessage(error.message);
+      });
   };
 
   return (
@@ -111,6 +147,8 @@ const Signup = () => {
                 <button className="btn btn-active">SignUp</button>
               </div>
             </form>
+
+            <p className="text-red-500">{message}</p>
 
             <div>
               <p className="text-center">Or signup with</p>

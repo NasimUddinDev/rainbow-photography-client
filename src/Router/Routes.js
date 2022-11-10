@@ -31,10 +31,6 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () =>
-          fetch(
-            `https://rainbow-photography-server-nasim0994.vercel.app/services`
-          ),
       },
       {
         path: "/serviceDetails/:id",
