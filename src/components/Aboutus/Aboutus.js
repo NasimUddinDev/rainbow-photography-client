@@ -7,8 +7,8 @@ const Aboutus = () => {
         <h2 className="text-4xl font-bold text-center mb-4">About Us</h2>
       </div>
 
-      <div className="flex gap-6 items-center">
-        <div className="w-[50%]" data-aos="fade-right">
+      <div className="lg:flex gap-6 items-center">
+        <div className="lg:w-[50%]" data-aos="fade-right">
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">
             {" "}
             Rainbow
@@ -24,11 +24,11 @@ const Aboutus = () => {
           </p>
           <button className="btn btn-active">See More</button>
         </div>
-        <div className="w-[50%]" data-aos="fade-left">
+        <div className="lg:w-[50%]" data-aos="fade-left">
           <img
             src="http://hazelgraphy.com/wp-content/uploads/2015/02/Rainbow_Photography_Logo_Preview.jpg"
             alt=""
-            className="w-[70%]"
+            className="lg:w-[70%]"
           />
         </div>
       </div>

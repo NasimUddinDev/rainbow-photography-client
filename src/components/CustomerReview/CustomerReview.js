@@ -9,9 +9,9 @@ const CustomerReview = () => {
         <h2 className="text-4xl font-bold text-center mb-4">Customer Review</h2>
       </div>
 
-      <div className="flex gap-6 text-center">
+      <div className="lg:flex gap-6 text-center">
         <div
-          className=" bg-lime-200 px-4 py-8 rounded-md"
+          className=" bg-lime-200 px-4 py-8 rounded-md mb-3 lg:mb-0"
           data-aos="fade-right"
         >
           <h3 className="text-2xl  font-bold mb-3">Amazing Service</h3>
@@ -41,7 +41,7 @@ const CustomerReview = () => {
           </div>
         </div>
 
-        <div className=" bg-blue-200 px-4 py-8 rounded-md">
+        <div className=" bg-blue-200 px-4 py-8 rounded-md mb-3 lg:mb-0">
           <h3 className="text-2xl  font-bold mb-3">Amazing Service</h3>
           <p className="text-gray-500">
             <FaScribd className="inline text-red-500 font-bold" />
@@ -69,7 +69,7 @@ const CustomerReview = () => {
           </div>
         </div>
 
-        <div className=" bg-green-200 px-4 py-8 rounded-md">
+        <div className=" bg-green-200 px-4 py-8 rounded-md mb-3 lg:mb-0">
           <h3 className="text-2xl  font-bold mb-3">Amazing Service</h3>
           <p className="text-gray-500">
             <FaScribd className="inline text-red-500 font-bold" />
@@ -97,7 +97,10 @@ const CustomerReview = () => {
           </div>
         </div>
 
-        <div className="bg-cyan-200 px-4 py-8 rounded-md" data-aos="fade-left">
+        <div
+          className="bg-cyan-200 px-4 py-8 rounded-md mb-3 lg:mb-0"
+          data-aos="fade-left"
+        >
           <h3 className="text-2xl  font-bold mb-3">Amazing Service</h3>
           <p>
             <FaScribd className="inline text-red-500 font-bold" />
