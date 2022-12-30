@@ -7,11 +7,14 @@ import { MdEmail, MdLocationOn } from "react-icons/md";
 
 const Contact = () => {
   return (
-    <>
+    <div>
       <h2 className="text-center font-bold text-4xl mb-4">Contact Me</h2>
 
       <div className="grid md:grid-cols-2 gap-5">
-        <div className="p-8  rounded-md py-12 bg-slate-200 shadow-lg">
+        <div
+          data-aos="fade-right"
+          className="p-8  rounded-md py-12 bg-slate-200 shadow-lg"
+        >
           <h2 className="text-cenetr text-2xl font-bold mb-4">Contact Info</h2>
 
           <div>
@@ -56,7 +59,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="p-8 rounded-md bg-white shadow-lg">
+        <div data-aos="fade-left" className="p-8 rounded-md bg-white shadow-lg">
           <h2 className="text-2xl font-bold mb-4">Send a Message</h2>
 
           <form>
@@ -94,7 +97,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -22,7 +22,7 @@ const Header = () => {
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">
               {" "}
               Rainbow
-              <span className="text-blue-600 ">Photography</span>
+              <span className="text-rose-600 ">Photography</span>
             </h2>
           </Link>
         </div>

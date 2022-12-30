@@ -28,8 +28,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="px-8 py-5">
-      <section className="banner-container">
+    <div data-aos-easing="linear" className="px-8 py-5">
+      <section data-aos="zoom-out-up" className="banner-container">
         <div>
           <h2 className="lg:text-6xl text-white">
             Make Memories on your <br /> Wedding day <br /> That will last a
@@ -66,7 +66,12 @@ const Home = () => {
           {gallery.map((img) => (
             <PhotoProvider key={img._id}>
               <PhotoView src={img.picture}>
-                <img src={img.picture} alt="" className="w-full h-60 lg:h-80" />
+                <img
+                  data-aos="zoom-in-up"
+                  src={img.picture}
+                  alt=""
+                  className="w-full h-60 lg:h-80"
+                />
               </PhotoView>
             </PhotoProvider>
           ))}
