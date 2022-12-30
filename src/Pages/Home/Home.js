@@ -6,6 +6,8 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import Contact from "../../components/Contact/Contact";
 import { UseTitle } from "../../utils/DaynamicTitle";
+import CustomerReview from "../../components/CustomerReview/CustomerReview";
+import Aboutus from "../../components/Aboutus/Aboutus";
 
 const Home = () => {
   UseTitle("Home || Rainbow Photography");
@@ -78,8 +80,16 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="py-5 lg:px-10 bg-slate-100">
+        <CustomerReview />
+      </section>
+
+      <section className="py-5 lg:px-10 ">
+        <Aboutus />
+      </section>
+
       {/* Conract Section */}
-      <section className="p-4 bg-slate-50">
+      <section className="p-4 bg-slate-100">
         <Contact></Contact>
       </section>
     </div>
